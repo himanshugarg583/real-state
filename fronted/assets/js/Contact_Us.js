@@ -1,0 +1,146 @@
+function contact_num_valid(evt) {
+    var theEvent = evt || window.event;
+    if (theEvent.type === 'paste') {
+        key = event.clipboardData.getData('text/plain');
+    } else {
+        var key = theEvent.keyCode || theEvent.which;
+        key = String.fromCharCode(key);
+    }
+    var count = (evt.target.value.match(/\+/g) || []).length;
+    if (count < 2 && key == '+') {
+        evt.target.value = evt.target.value.replace(/\+/g, "");
+        evt.target.value = '+' + evt.target.value;
+        theEvent.returnValue = false;
+        if (theEvent.preventDefault) theEvent.preventDefault();
+        return false;
+    }
+    var regex = /[+0-9]|\./;
+    if (!regex.test(key)) {
+        theEvent.returnValue = false;
+        if (theEvent.preventDefault) theEvent.preventDefault();
+    }
+}
+jQuery("#Contact_Us").submit(function(e) {
+    jQuery(this).find('input[type="password"],input[type="text"],input[type="number"],input[type="tel"]').each(function() {
+        jQuery(this).val($.trim(jQuery(this).val()));
+    })
+
+    function valid_contact() {
+        var fname = document.querySelector('#Contact_Us #fname');
+        var lname = document.querySelector('#Contact_Us #lname');
+        var tel = document.querySelector('#Contact_Us #contact_no');
+        var email = document.querySelector('#Contact_Us #email');
+        var message = document.querySelector('#Contact_Us #message');
+
+        if (fname.value == '') {
+            document.querySelector('#Contact_Us #error_data').innerHTML = '* Please Enter First Name.';
+            fname.style.borderColor = "red";
+            fname.focus();
+            return false;
+        } else {
+            fname.style.borderColor = ""
+        }
+        var digit = fname.value;
+        var alpha = /^[a-zA-Z-,]+(\s{0,1}[a-zA-Z-, ])+(\s{0,1}[a-zA-Z-, ])*$/;
+        if (!alpha.test(digit)) {
+            document.querySelector('#Contact_Us #error_data').innerHTML = '* Invalid Name: ' + fname.value;
+            fname.style.borderColor = "red";
+            fname.value = '';
+            fname.focus();
+            return false;
+        }
+
+        if (lname.value == '') {
+            document.querySelector('#Contact_Us #error_data').innerHTML = '* Please Enter Last Name.';
+            lname.style.borderColor = "red";
+            lname.focus();
+            return false;
+        } else {
+            lname.style.borderColor = ""
+        }
+        var digit = lname.value;
+        var alpha = /^[a-zA-Z-,]+(\s{0,1}[a-zA-Z-, ])+(\s{0,1}[a-zA-Z-, ])*$/;
+        if (!alpha.test(digit)) {
+            document.querySelector('#Contact_Us #error_data').innerHTML = '* Invalid Name: ' + lname.value;
+            lname.style.borderColor = "red";
+            lname.value = '';
+            lname.focus();
+            return false;
+        }
+
+        if (email.value == '') {
+            document.querySelector('#Contact_Us #error_data').innerHTML = '* Please Enter Email ID.';
+            email.style.borderColor = "red";
+            email.focus();
+            return false;
+        } else {
+            email.style.borderColor = ""
+        }
+        var c_reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+        var c_address = email.value;
+        if (c_reg.test(c_address) == false) {
+            document.querySelector('#Contact_Us #error_data').innerHTML = '* Invalid Email ID: ' + email.value;
+            email.style.borderColor = "red";
+            email.value = '';
+            email.focus();
+            return false;
+        } else {
+            email.style.borderColor = ""
+        }
+
+
+        if (tel.value == '') {
+            document.querySelector('#Contact_Us #error_data').innerHTML = '* Please Enter Contact No.';
+            tel.style.borderColor = "red";
+            tel.focus();
+            return false;
+        } else {
+            tel.style.borderColor = ""
+        }
+        var c_mobile = tel.value.replace(/\+/g, '');
+        var c_pattern = /^(?!(\d)\1+\b|1234567890)\d{10,}$/;
+        if (!c_pattern.test(c_mobile)) {
+            document.querySelector('#Contact_Us #error_data').innerHTML = '* Invalid Contact No.: ' + tel.value;
+            tel.style.borderColor = "red";
+            tel.value = '';
+            tel.focus();
+            return false;
+        } else {
+            tel.style.borderColor = ""
+        }
+
+        if (message.value == '') {
+            document.querySelector('#Contact_Us #error_data').innerHTML = '* Please Enter Message ';
+            message.style.borderColor = "red";
+            message.focus();
+            return false;
+        } else {
+            message.style.borderColor = ""
+        }
+
+        document.querySelector('#Contact_Us #error_data').innerHTML = '';
+        return true;
+    }
+    if (valid_contact() == true) {
+        document.querySelector('#Contact_Us #form_process').style.visibility = "visible";
+        jQuery(this).find('[type="submit"]').prop('disabled', true); //.fadeOut('slow');
+        var form_url = jQuery("#Contact_Us").attr('action'); // the script where you handle the form input.	
+        $.ajax({
+            type: "POST",
+            url: form_url,
+            data: jQuery("#Contact_Us").serialize(), // serializes the form's elements.
+            success: function(data) {
+                jQuery("#Contact_Us").empty();
+                jQuery("#Contact_Us").html(data); // show response from the php script.
+            },
+            error: function(data) {
+                jQuery("#Contact_Us").empty();
+                jQuery("#Contact_Us").html("<div class='alert alert-danger'>Sorry! Some Technical issue occured. Please try again after sometime.</div>"); // show response from the php script.
+            }
+        });
+
+        e.preventDefault();
+    } else {
+        e.preventDefault();
+    }
+});

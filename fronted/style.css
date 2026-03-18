@@ -1,0 +1,276 @@
+.about-viedo-text{
+    font-size: 90px;
+    font-weight: bolder;
+    position: absolute;
+}
+
+.about-right{
+    bottom: 0;
+    margin-left: 30rem;
+    /* right: 0; */
+/* left: 0; */
+    /* margin-right:-20rem ; */
+    /* background-color: #000; */
+}
+.prev-btn {
+
+z-index: 100;
+opacity: 1;
+}
+
+
+
+.news-section {
+    padding: 60px 0;
+     background-color: rgba(248, 227, 227, 0.548);
+  }
+  .news-section h2 {
+    color: #0056d2;
+    font-size: 18px;
+  }
+  .news-section h1 {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 40px;
+  }
+  
+  .news-card{
+    /* position: absolute; */
+  }
+  .card-text{
+    color: #212529;
+  
+  }
+  .read-more{
+    color: #0056d2;
+    /* right: 5px; */
+    /* position: absolute; */
+    position: relative;
+    /* top: 5px; */
+    /* right: 10px; */
+    left: 120px;
+    font-size: 15px;
+    text-decoration: none;
+    /* background-color: #ddf3e3; */
+    /* color: #1abc9c; */
+    /* font-size: 0.8rem; */
+    /* padding: 5px 10px; */
+    /* border-radius: 5px; */
+  }
+  
+  .news-card{
+  
+  }
+  
+  .news-card img{
+    width: 100%;
+    /* height: 20%; */
+    height: 10rem;
+  }
+  
+  
+  
+  /* .nav{
+    background-color: black;
+    padding:15px;
+  } */
+
+  /* say container */
+  .say-container{
+    background-color: #000;
+  }
+  
+  
+  .section-title {
+    text-align: center;
+    margin-bottom: 20px;
+    color: white;
+  }
+  .section-title h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #FFFFFF;
+  }
+  .section-title p {
+    font-size: 1rem;
+    color: white;
+    font-weight: 100;
+  }
+  
+  
+  .section-title .say-heading{
+    color: #0056D2;
+    font-weight: 700;
+  }
+  
+  .say-heading{
+    /* font-weight: 800; */
+  }
+  
+  .saycard{
+    background-color: #1c2230;
+    border: none;
+    border-radius: 10px;
+    /* overflow: hidden; */
+    position: relative;
+  }
+  .saycard img {
+    width: 100%;
+    /* height: 150%; */
+    height: 20rem;
+  }
+  
+  .saycard .card-body {
+    text-align: center;
+    display: flex;
+  
+    flex-direction: column;
+    /* gap: -60px; */
+    width: 90%;
+    background-color: white;
+    /* margin: 0 auto; */
+    border-radius: 5px;
+    position: absolute;
+    bottom: -5px;
+    left: 14px;
+    align-items: center;
+    /* border: 2px solid black; */
+  }
+  .saycard .card-body .card-title {
+    font-size: 1.2rem;
+    position: absolute;
+    color: #0058cc;
+    color: #000;
+    font-weight: bold;
+    margin: 0 auto;
+  }
+  .saycard .card-body .card-text {
+    font-size: 0.9rem;
+    color: #164fb1;
+    /* margin: 25px; */
+    padding-top: 25px;
+    /* border: 2px solid black; */
+  }
+  .saycard .card-body .experience{
+    /* border: 2px solid black; */
+    margin: -10px;
+    color: #e4a3a3;
+  
+  }
+  .badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #FFFFFF;
+    color: black;
+    font-size: 0.8rem;
+    padding: 4px 4px;
+    border-radius: 5px;
+  }
+  .badge-counselling {
+    position: absolute;
+    top: 5px;
+    right: 12px;
+    background-color: #ddf3e3;
+    color: #1abc9c;
+    font-size: 0.8rem;
+    padding: 5px 10px;
+    border-radius: 5px;
+  }
+  .consult-btn {
+    background-color: #007bff;
+    background-color: #000;
+    color: white;
+    border: none;
+    padding: 3px 5px;
+    border-radius: 5px;
+    font-size: 0.7rem;
+    margin-top: 10px;
+  }
+  
+  
+  .say-btn {
+    background-color: #07090a;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    top: 50%;
+    color: white;
+    border: 2px solid white;
+    transform: translateY(-50%);
+  }
+  
+  .prev-btn:hover,  .next-btn:hover {
+    /* background-color: #0056b3; */
+  }
+  
+  
+.slick-slider .slick-prev::before {
+    content: '<';
+    line-height: 1.6;
+    
+    font-size: 20px;
+    top: -70%;
+    position: absolute;
+    margin-left: -10px;
+    /* left: 10px; */
+    outline: "none";
+    border: 2px solid white;
+    width: 40px;
+    height: 40px;
+    border-radius: 35px;
+    background-color: rgb(0, 0, 0);
+    
+    z-index: 500;
+    opacity: 5;
+  
+  }
+  
+  
+  
+  
+  .slick-slider .slick-next::before {
+    content: '>';
+    line-height: 1.6;
+    
+    font-size: 20px;
+    top: -70%;
+    right: 40px;
+    position: absolute;
+    
+    outline: "none";
+    border: 2px solid white;
+    width: 40px;
+    height: 40px;
+    border-radius: 35px;
+    background-color: rgb(0, 0, 0);
+    
+    z-index: 100;
+    opacity: 1;
+  }
+  
+  
+  
+  .slider-second img {
+    width: 80%;
+    height: auto;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    margin-left: 20px;
+    margin-top: 20px;
+    border-radius: 20px;
+    filter: grayscale(100%);  /* Default to black and white */
+  }
+  
+  /* Style for the leftmost slide (larger and in color) */
+  .slider-second .slick-current img {
+    transform: scale(1.2);
+        /* Enlarges the current slide */
+    filter: grayscale(0%);
+    width: 100%;
+    /* margin-right: 20px; */
+    /* border: 5px solid black; */
+        /* Shows in color */
+        /* background-color: blueviolet; */
+  }
+  
+  
